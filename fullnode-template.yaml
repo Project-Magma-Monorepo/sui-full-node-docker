@@ -8,6 +8,8 @@ metrics-address: "0.0.0.0:9184"
 json-rpc-address: "0.0.0.0:9000"
 enable-event-processing: true
 
+
+
 genesis:
   # Update this to the location of where the genesis file is stored
   genesis-file-location: "/opt/sui/config/genesis.blob"
@@ -36,6 +38,11 @@ state-archive-read-config:
     # Whether to prune local state based on latest checkpoint in archive.
     # This should stay false for most use cases
     use-for-pruning-watermark: false
+
+checkpoint-executor-config:
+  checkpoint-execution-max-concurrency: 200
+  local-execution-timeout-sec: 30
+  data-ingestion-dir: /checkpoints_indexer
 
 
 p2p-config:
