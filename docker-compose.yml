@@ -11,9 +11,6 @@ services:
       - ./fullnode-template.yaml:/opt/sui/config/fullnode.yaml:ro
       - ./genesis.blob:/opt/sui/config/genesis.blob:ro
       - ./suidb:/opt/sui/db:rw
-      # Make sure the checkpoints directory is explicitly mounted to the shared volume
-      # - sui_checkpoints:/checkpoints:rw
-      # Add this line to mount the checkpoints directory
-      # - ./checkpoints_indexer:/checkpoints_indexer:rw
     command: ["/opt/sui/bin/sui-node", "--config-path", "/opt/sui/config/fullnode.yaml"]
-
+# volumes:
+#   suidb:
