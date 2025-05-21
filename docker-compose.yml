@@ -1,7 +1,7 @@
 services:
   sui-node:
     # Note: Update the tag to the latest version of mysten/sui-node for mainnet or testnet.
-    image: mysten/sui-node:mainnet-v1.19.1
+    image: mysten/sui-node:mainnet
     ports:
       - "8080:8080"
       - "8084:8084/udp"
@@ -12,5 +12,6 @@ services:
       - ./genesis.blob:/opt/sui/config/genesis.blob:ro
       - ./suidb:/opt/sui/db:rw
     command: ["/opt/sui/bin/sui-node", "--config-path", "/opt/sui/config/fullnode.yaml"]
+    cpus: "8" #Limit Full Node Cpus to 8 for performance,can be lifted if more ressources
 # volumes:
 #   suidb:
